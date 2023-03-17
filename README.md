@@ -15,3 +15,5 @@ https://api.census.gov/data/2021/acs/acs1?get=NAME,B08201_002E,B08201_003E,B0820
 
 ## % vehicles by household vehicle count, per county (NJ, 2021) <a id="vhcp"></a>
 ![](vehicles_by_household_count_pcts.png)
+
+Over 50% of vehicles in Hudson County (and ≈80% of vehicles state-wide) belong to multi-car households. There is a huge opportunity for helping families need one fewer car. Replacing one car with an ebike is a popular move, provides the house with a cheaper, cleaner, healthier, and more fun vehicle for many trips.
