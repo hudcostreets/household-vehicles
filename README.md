@@ -18,3 +18,6 @@ There is a huge opportunity for helping families need one fewer car. Replacing o
 ![](hudson/Vehicles%20by%20%5BHousehold%20Vehicle%20Count%5D.png)
 
 In Hudson County cities (other than Hoboken), 50-75% of the total vehicles come from multi-vehicle households.
+
+## % households with no vehicles (Hudson County cities)
+![](hudson/%25%20of%20households%20with%20no%20vehicle%20access.png)
