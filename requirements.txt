@@ -1,0 +1,5 @@
+fastparquet
+iRe.py
+jupyter
+kaleido
+plotly
