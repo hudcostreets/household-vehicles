@@ -22,6 +22,8 @@ def plot(
         name=None,
         w=W, h=H,
         pct=False,
+        bg='white',
+        ygrid='#bbb',
         legend=None,
         layout=None,
         xaxis=None,
@@ -67,10 +69,12 @@ def plot(
         hovermode='x',
         **yaxis_kwargs,
         legend=legend,
+        plot_bgcolor=bg,
         **(layout or {}),
     )
 
     fig.update_xaxes(tickangle=-45)
+    fig.update_yaxes(gridcolor=ygrid)
     fig.update_traces(hovertemplate=None, **traces_kwargs)
     titled_fig = go.Figure(fig)
     full_subtitle = f'<br><span style="font-size: 0.8em">{subtitle}</span>' if subtitle else ''
