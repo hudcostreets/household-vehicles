@@ -47,6 +47,11 @@ def plot(
     if 'text' not in kwargs:
         kwargs['text'] = y
 
+    if 'yrange' in kwargs:
+        yrange = kwargs.pop('yrange')
+    else:
+        yrange = [0, 1] if pct else None
+
     traces_kwargs = {
         k: kwargs.pop(k) if k in kwargs else default
         for k, default in {
@@ -60,7 +65,7 @@ def plot(
     yaxis_kwargs = dict(
         yaxis=dict(
             tickformat=',.0%',
-            range=[0, 1],
+            range=yrange,
         )
     ) if pct else dict()
 
@@ -77,7 +82,7 @@ def plot(
     fig.update_yaxes(gridcolor=ygrid)
     fig.update_traces(hovertemplate=None, **traces_kwargs)
     titled_fig = go.Figure(fig)
-    full_subtitle = f'<br><span style="font-size: 0.8em">{subtitle}</span>' if subtitle else ''
+    full_subtitle = f'<br><span style="font-size: 0.7em">{subtitle}</span>' if subtitle else ''
     full_title = f'{title}{full_subtitle}'
     titled_fig.update_layout(
         title=dict(text=full_title, x=0.5, y=.95),
