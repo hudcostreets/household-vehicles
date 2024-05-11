@@ -2,6 +2,7 @@ from functools import partial
 
 import plotly.express as px
 import plotly.graph_objects as go
+from IPython.core.display import Image
 from ire import export
 
 
@@ -54,6 +55,8 @@ def plot(
     else:
         yrange = [0, 1] if pct else None
 
+    do_export = kwargs.pop('export') if 'export' in kwargs else True
+
     traces_kwargs = {
         k: kwargs.pop(k) if k in kwargs else default
         for k, default in {
@@ -95,7 +98,11 @@ def plot(
     if name:
         fig.write_image(f'{name}.png', width=w, height=h)
         titled_fig.write_image(f'{name}_title.png', width=w, height=h)
-    return export(titled_fig, name=name, show='png')
+
+    if do_export:
+        return export(titled_fig, name=name, show='png')
+    else:
+        return Image(titled_fig.to_image(width=w, height=h))
 
 
 def ur_legend(title):
