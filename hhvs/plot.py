@@ -13,7 +13,28 @@ W, H = 700, 500
 # W, H = 1200, 800
 
 
-def plot(df, title, subtitle=None, y=None, colors=None, name=None, w=W, h=H, pct=False, legend=None, layout=None, xaxis=None, **kwargs):
+def plot(
+        df,
+        title, subtitle=None,
+        y=None,
+        colors=None,
+        melt=None,
+        name=None,
+        w=W, h=H,
+        pct=False,
+        legend=None,
+        layout=None,
+        xaxis=None,
+        **kwargs
+):
+    if melt:
+        x = df.index.name
+        y = melt
+        color = df.columns.name
+        df = df.reset_index().melt(id_vars=x, value_name=melt)
+        kwargs['x'] = x
+        kwargs['color'] = color
+
     colors = colors or default_colors
     if y or 'value' not in kwargs.get('labels', {}):
         y = y or df.columns.name
@@ -21,7 +42,19 @@ def plot(df, title, subtitle=None, y=None, colors=None, name=None, w=W, h=H, pct
             kwargs['labels'] = {}
         kwargs['labels']['value'] = y
 
-    fig = px.bar(df, **kwargs, color_discrete_sequence=colors)
+    if 'text' not in kwargs:
+        kwargs['text'] = y
+
+    traces_kwargs = {
+        k: kwargs.pop(k) if k in kwargs else default
+        for k, default in {
+            'textposition': 'inside',
+            'textangle': 0,
+            'texttemplate': '%{y:.0%}' if pct else '%{y:.2s}',
+        }.items()
+    }
+
+    fig = px.bar(df, **kwargs, y=y, color_discrete_sequence=colors)
     yaxis_kwargs = dict(
         yaxis=dict(
             tickformat=',.0%',
@@ -36,8 +69,9 @@ def plot(df, title, subtitle=None, y=None, colors=None, name=None, w=W, h=H, pct
         legend=legend,
         **(layout or {}),
     )
+
     fig.update_xaxes(tickangle=-45)
-    fig.update_traces(hovertemplate=None)
+    fig.update_traces(hovertemplate=None, **traces_kwargs)
     titled_fig = go.Figure(fig)
     full_subtitle = f'<br><span style="font-size: 0.8em">{subtitle}</span>' if subtitle else ''
     full_title = f'{title}{full_subtitle}'
