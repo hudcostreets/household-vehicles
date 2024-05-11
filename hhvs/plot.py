@@ -15,7 +15,9 @@ W, H = 700, 500
 
 def plot(
         df,
-        title, subtitle=None,
+        title,
+        subtitle=None,
+        subtitle_size='0.7em',
         y=None,
         colors=None,
         melt=None,
@@ -75,6 +77,8 @@ def plot(
         **yaxis_kwargs,
         legend=legend,
         plot_bgcolor=bg,
+        width=w,
+        height=h,
         **(layout or {}),
     )
 
@@ -82,7 +86,7 @@ def plot(
     fig.update_yaxes(gridcolor=ygrid)
     fig.update_traces(hovertemplate=None, **traces_kwargs)
     titled_fig = go.Figure(fig)
-    full_subtitle = f'<br><span style="font-size: 0.7em">{subtitle}</span>' if subtitle else ''
+    full_subtitle = f'<br><span style="font-size: {subtitle_size}">{subtitle}</span>' if subtitle else ''
     full_title = f'{title}{full_subtitle}'
     titled_fig.update_layout(
         title=dict(text=full_title, x=0.5, y=.95),
