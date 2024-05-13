@@ -3,7 +3,7 @@ from os.path import join
 
 import plotly.express as px
 import plotly.graph_objects as go
-from IPython.core.display import Image
+from IPython.core.display import Image, HTML
 import ire
 from ire import export
 
@@ -35,6 +35,7 @@ def plot(
         layout=None,
         xaxis=None,
         export_kwargs=None,
+        show='png',
         **kwargs
 ):
     """Plotly bar graph wrapper exposing default settings and data transforms used in this project."""
@@ -81,6 +82,7 @@ def plot(
             'textposition': 'inside',
             'textangle': 0,
             'texttemplate': '%{y:.0%}' if pct else '%{y:.2s}',
+            'hovertemplate': '%{y:.1%}' if pct else '%{y:,}',
         }.items()
     }
 
@@ -98,7 +100,7 @@ def plot(
 
     fig.update_xaxes(tickangle=x_tickangle, gridcolor=xgrid)
     fig.update_yaxes(gridcolor=ygrid)
-    fig.update_traces(hovertemplate=None, **traces_kwargs)
+    fig.update_traces(**traces_kwargs)
 
     # Save 2 copies of the plot, as PNG:
     # - one with title text "burned in" to the image
@@ -119,9 +121,16 @@ def plot(
 
     # Optionally export plot JSON to iRe
     if do_export:
-        return export(titled_fig, name=name, show='png', **(export_kwargs or {}))
+        return export(titled_fig, name=name, show=show, **(export_kwargs or {}))
     else:
-        return Image(titled_fig.to_image(width=w, height=h))
+        if show == 'fig':
+            return titled_fig
+        elif show == 'html':
+            return HTML(titled_fig.to_html())
+        elif show == 'png':
+            return Image(titled_fig.to_image(width=w, height=h))
+        else:
+            raise ValueError(f"Unrecognized `show` value: {show}")
 
 
 def ur_legend(title):
