@@ -2,7 +2,7 @@
 
 [Here's a Google Sheet][gsheet] with the data, and a couple of plots:
 
-Notebook [here](../nbs/hudson.ipynb), data ([gsheet]) is from ACS 5yr 2021 estimates, from this URL:
+Notebook [here](../nbs/Hudson%20County.ipynb), data ([gsheet]) is from ACS 5yr 2021 estimates, from this URL:
 
 https://censusreporter.org/data/table/?table=B08201&geo_ids=16000US3432250,160%7C05000US34017,06000US3401777930,06000US3401752470&primary_geo_id=16000US3432250
 

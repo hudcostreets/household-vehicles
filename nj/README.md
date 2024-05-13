@@ -1,6 +1,6 @@
 # Vehicles per Household (NJ)
 
-Notebook [here](../nbs/nj.ipynb), data ([csv](vehicles2021.csv), [gsheet](https://docs.google.com/spreadsheets/d/1edtveamM7U8lIngnlFXNOvhaB_6OfMG-gGoJ3VvSqko/edit)) comes from ACS 1yr estimates at this Census Data API URL:
+Notebook [here](../nbs/NJ.ipynb), data ([csv](vehicles2021.csv), [gsheet](https://docs.google.com/spreadsheets/d/1edtveamM7U8lIngnlFXNOvhaB_6OfMG-gGoJ3VvSqko/edit)) comes from ACS 1yr estimates at this Census Data API URL:
 
 https://api.census.gov/data/2021/acs/acs1?get=NAME,B08201_002E,B08201_003E,B08201_004E,B08201_005E,B08201_006E&for=county:*&in=state:34
 
