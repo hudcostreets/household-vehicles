@@ -1,5 +1,5 @@
 fastparquet
-iRe.py
+iRe.py>=0.1.1
 jupyter
 kaleido
 plotly
