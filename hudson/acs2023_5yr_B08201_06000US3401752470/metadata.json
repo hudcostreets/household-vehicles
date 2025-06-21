@@ -1,0 +1,136 @@
+{
+    "release": {
+        "id": "acs2023_5yr",
+        "name": "ACS 2023 5-year",
+        "years": "2019-2023"
+    },
+    "tables": {
+        "B08201": {
+            "columns": {
+                "B08201001": {
+                    "indent": 0,
+                    "name": "Total:"
+                },
+                "B08201002": {
+                    "indent": 1,
+                    "name": "No vehicle available"
+                },
+                "B08201003": {
+                    "indent": 1,
+                    "name": "1 vehicle available"
+                },
+                "B08201004": {
+                    "indent": 1,
+                    "name": "2 vehicles available"
+                },
+                "B08201005": {
+                    "indent": 1,
+                    "name": "3 vehicles available"
+                },
+                "B08201006": {
+                    "indent": 1,
+                    "name": "4 or more vehicles available"
+                },
+                "B08201007": {
+                    "indent": 1,
+                    "name": "1-person household:"
+                },
+                "B08201008": {
+                    "indent": 2,
+                    "name": "No vehicle available"
+                },
+                "B08201009": {
+                    "indent": 2,
+                    "name": "1 vehicle available"
+                },
+                "B08201010": {
+                    "indent": 2,
+                    "name": "2 vehicles available"
+                },
+                "B08201011": {
+                    "indent": 2,
+                    "name": "3 vehicles available"
+                },
+                "B08201012": {
+                    "indent": 2,
+                    "name": "4 or more vehicles available"
+                },
+                "B08201013": {
+                    "indent": 1,
+                    "name": "2-person household:"
+                },
+                "B08201014": {
+                    "indent": 2,
+                    "name": "No vehicle available"
+                },
+                "B08201015": {
+                    "indent": 2,
+                    "name": "1 vehicle available"
+                },
+                "B08201016": {
+                    "indent": 2,
+                    "name": "2 vehicles available"
+                },
+                "B08201017": {
+                    "indent": 2,
+                    "name": "3 vehicles available"
+                },
+                "B08201018": {
+                    "indent": 2,
+                    "name": "4 or more vehicles available"
+                },
+                "B08201019": {
+                    "indent": 1,
+                    "name": "3-person household:"
+                },
+                "B08201020": {
+                    "indent": 2,
+                    "name": "No vehicle available"
+                },
+                "B08201021": {
+                    "indent": 2,
+                    "name": "1 vehicle available"
+                },
+                "B08201022": {
+                    "indent": 2,
+                    "name": "2 vehicles available"
+                },
+                "B08201023": {
+                    "indent": 2,
+                    "name": "3 vehicles available"
+                },
+                "B08201024": {
+                    "indent": 2,
+                    "name": "4 or more vehicles available"
+                },
+                "B08201025": {
+                    "indent": 1,
+                    "name": "4-or-more-person household:"
+                },
+                "B08201026": {
+                    "indent": 2,
+                    "name": "No vehicle available"
+                },
+                "B08201027": {
+                    "indent": 2,
+                    "name": "1 vehicle available"
+                },
+                "B08201028": {
+                    "indent": 2,
+                    "name": "2 vehicles available"
+                },
+                "B08201029": {
+                    "indent": 2,
+                    "name": "3 vehicles available"
+                },
+                "B08201030": {
+                    "indent": 2,
+                    "name": "4 or more vehicles available"
+                }
+            },
+            "denominator_column_id": "B08201001",
+            "title": "Household Size by Vehicles Available",
+            "universe": "Households"
+        }
+    }
+}
