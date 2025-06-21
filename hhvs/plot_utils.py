@@ -17,26 +17,26 @@ W, H = 700, 500
 
 
 def plot(
-        df,
-        title,
-        subtitle=None,
-        subtitle_size='0.7em',
-        y=None,
-        colors=None,
-        melt=None,
-        name=None,
-        w=W, h=H,
-        pct=False,
-        bg='white',
-        x_tickangle=-45,
-        xgrid=None,
-        ygrid='#bbb',
-        legend=None,
-        layout=None,
-        xaxis=None,
-        export_kwargs=None,
-        show='png',
-        **kwargs
+    df,
+    title,
+    subtitle=None,
+    subtitle_size='0.7em',
+    y=None,
+    colors=None,
+    melt=None,
+    name=None,
+    w=W, h=H,
+    pct=False,
+    bg='white',
+    x_tickangle=-45,
+    xgrid=None,
+    ygrid='#bbb',
+    legend=None,
+    layout=None,
+    xaxis=None,
+    export_kwargs=None,
+    show='png',
+    **kwargs
 ):
     """Plotly bar graph wrapper exposing default settings and data transforms used in this project."""
     if melt:
