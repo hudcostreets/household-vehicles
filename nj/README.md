@@ -1,6 +1,6 @@
 # Vehicles per Household (NJ)
 
-Notebook [here](../nbs/NJ.ipynb), data ([csv](vehicles2021.csv), [gsheet](https://docs.google.com/spreadsheets/d/1edtveamM7U8lIngnlFXNOvhaB_6OfMG-gGoJ3VvSqko/edit)) comes from ACS 1yr estimates at this Census Data API URL:
+Notebook [here](../nbs/NJ.ipynb), data ([csv](vehicles2021.csv), [gsheet]) comes from ACS 1yr estimates at this Census Data API URL:
 
 https://api.census.gov/data/2021/acs/acs1?get=NAME,B08201_002E,B08201_003E,B08201_004E,B08201_005E,B08201_006E&for=county:*&in=state:34
 
@@ -17,3 +17,5 @@ https://api.census.gov/data/2021/acs/acs1?get=NAME,B08201_002E,B08201_003E,B0820
 ![](vehicles_by_household_count_pcts.png)
 
 In most of the state, ≈80% of the vehicles come from multi-vehicle households! Hudson County is an exception, where it's ≈50%.
+
+[gsheet]: https://docs.google.com/spreadsheets/d/10XN880YN-x7sme1tUTYUFwV9Y91EyQ4FRjth6AmhuQY/edit

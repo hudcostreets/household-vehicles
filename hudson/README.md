@@ -26,4 +26,4 @@ Same plot, from [this gsheet][gsheet]:
 
 One interesting observation from this plot is that, in Hudson County cities other than Hoboken, 50-75% of the total vehicles come from multi-vehicle households.
 
-[gsheet]: https://docs.google.com/spreadsheets/d/1NR-aW8NQTcxVA-60QqsNdPDckyzgsYDcxD5l-9RsaQs/edit
+[gsheet]: https://docs.google.com/spreadsheets/d/1DoBwfyhJs6bMcPYebMZNNF7uCW_zy_wpAoAp8VLpgoQ/edit
