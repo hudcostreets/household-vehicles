@@ -4,4 +4,6 @@ iRe.py>=0.1.1
 jupyter
 kaleido
 lxml
+pandas
 plotly
+utz

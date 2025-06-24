@@ -6,13 +6,19 @@ from IPython.core.display import Image, HTML
 import ire
 from ire import export
 
-
 plotly_default_colors = px.colors.qualitative.Plotly
 colors = default_colors = [ plotly_default_colors[i] for i in [2, 0, 3, 4, 1] ]
 
 
 W, H = 700, 500
 # W, H = 1200, 800
+
+
+def fmt(v):
+    try:
+        return f'{v}' if v < 10_000 else f'{round(v / 1000)}k'
+    except TypeError:
+        raise ValueError(f'{type(v)}: {v}')
 
 
 def plot(
@@ -35,15 +41,19 @@ def plot(
     xaxis=None,
     export_kwargs=None,
     show='png',
+    anns: bool = None,
     **kwargs
 ):
     """Plotly bar graph wrapper exposing default settings and data transforms used in this project."""
+    sums = None
     if melt:
         # Convert input `df` from "wide" to "long" format, set plot {x,y,color} kwargs appropriately
         x = df.index.name
         y = melt
         color = df.columns.name
-        df = df.reset_index().melt(id_vars=x, value_name=melt)
+        sums = df.sum(1)
+        df = df.reset_index()
+        df = df.melt(id_vars=x, value_name=melt)
         kwargs['x'] = x
         kwargs['color'] = color
 
@@ -70,9 +80,9 @@ def plot(
     # Optionally disable iRe export
     do_export = kwargs.pop('export') if 'export' in kwargs else True
 
-    if 'text' not in kwargs:
+    # if 'text' not in kwargs:
         # Label each bar with its y-axis value
-        kwargs['text'] = y
+        # err(f"{kwargs['text']=}")
 
     # Configure text-label properties
     traces_kwargs = {
@@ -80,12 +90,23 @@ def plot(
         for k, default in {
             'textposition': 'inside',
             'textangle': 0,
-            'texttemplate': '%{y:.0%}' if pct else '%{y:.2s}',
+            'texttemplate': '%{y:.0%}' if pct else None,
             'hovertemplate': '%{y:.1%}' if pct else '%{y:,}',
         }.items()
     }
+    if pct:
+        text = None
+    else:
+        text = 'text'
+        df['text'] = df[y].apply(fmt)
 
-    fig = px.bar(df, **kwargs, y=y, color_discrete_sequence=colors)
+    fig = px.bar(
+        df,
+        **kwargs,
+        y=y,
+        color_discrete_sequence=colors,
+        text=text,
+    )
     fig.update_layout(
         xaxis=xaxis,
         hovermode='x',
@@ -100,6 +121,14 @@ def plot(
     fig.update_xaxes(tickangle=x_tickangle, gridcolor=xgrid)
     fig.update_yaxes(gridcolor=ygrid)
     fig.update_traces(**traces_kwargs)
+
+    if (anns or (anns is None and not pct)) and sums is not None:
+        for k, v in sums.to_dict().items():
+            fig.add_annotation(
+                x=k, y=v,
+                text=fmt(v),
+                ax=0, ay=-10,
+            )
 
     # Save 2 copies of the plot, as PNG:
     # - one with title text "burned in" to the image
@@ -120,7 +149,7 @@ def plot(
 
     # Optionally export plot JSON to iRe
     if do_export:
-        return export(titled_fig, name=name, show=show, **(export_kwargs or {}))
+        return export(titled_fig, name=name, show=None if show == 'fig' else show, **(export_kwargs or {}))
     else:
         if show == 'fig':
             return titled_fig

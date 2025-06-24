@@ -6,6 +6,13 @@ Notebook [here](../nbs/Hudson%20County.ipynb), data ([gsheet]) is from ACS 5yr 2
 
 https://censusreporter.org/data/table/?table=B08201&geo_ids=16000US3432250,160%7C05000US34017,06000US3401777930,06000US3401752470&primary_geo_id=16000US3432250
 
+## Total vehicles <a id="hc_vehs"></a>
+(by household vehicle #)
+![](hc_vehs.png)
+
+## Households by Vehicle Count, 2016-2023 <a id="hc_vehs_years"></a>
+![](hc_vehs_years.png)
+
 ## Number of households with 0, 1, 2, 3, or 4+ vehicles, by city <a id="hvc"></a>
 ![](households_by_vehicle_count.png)
 
