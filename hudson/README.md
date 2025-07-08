@@ -8,6 +8,7 @@ https://censusreporter.org/data/table/?table=B08201&geo_ids=16000US3432250,160%7
 
 ## Total vehicles <a id="hc_vehs"></a>
 (by household vehicle #)
+
 ![](hc_vehs.png)
 
 ## Households by Vehicle Count, 2016-2023 <a id="hc_vehs_years"></a>
